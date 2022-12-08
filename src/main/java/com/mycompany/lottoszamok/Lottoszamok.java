@@ -21,7 +21,7 @@ public class Lottoszamok {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int[] otosSzamok = new int[5];
         int[] hatosSzamok = new int[6];
-        int randomSzam =0, i = 0;
+        int randomSzam, i = 0;
         int felsoHatar, alsoHatar = 1;
         boolean vanIlyen = false;
         String valasz, hatosStr = "6", otosStr = "5", mindkettoStr = "mindketto";
