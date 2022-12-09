@@ -21,14 +21,21 @@ public class Lottoszamok {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int[] otosSzamok = new int[5];
         int[] hatosSzamok = new int[6];
-        int randomSzam, i = 0;
+        int randomSzam, i = 0, tippSzam = 0;
         int felsoHatar, alsoHatar = 1;
-        boolean vanIlyen = false;
+        boolean vanIlyen = false, helyesValasz = false;
         String valasz, hatosStr = "6", otosStr = "5", mindkettoStr = "mindketto";
         
         //tippválasztó
-        System.out.println("Milyen tippet szeretnél generálni (5/6/mindketto)");
-        valasz = br.readLine();
+        do {
+            System.out.println("Milyen tippet szeretnél generálni (5/6/mindketto)?");
+            valasz = br.readLine();
+            if (valasz.equals(otosStr) || valasz.equals(hatosStr) || valasz.equals(mindkettoStr))
+                helyesValasz = true;
+            else
+                System.out.println("Ilyen fajta tipp nem létezik!"); 
+        }while (!helyesValasz);
+        
         // Ötöslottó tipp 
         if (valasz.equals(otosStr) || valasz.equals(mindkettoStr)) {
             felsoHatar = 90;
@@ -49,7 +56,7 @@ public class Lottoszamok {
                     vanIlyen = false;
             }while( i <otosSzamok.length);
 
-            System.out.print("Ötöslottó tipp: ");
+            System.out.print("\nÖtöslottó tipp: ");
             for (int j = 0; j < otosSzamok.length; j++)
                 System.out.print(otosSzamok[j] + "; ");
         }
